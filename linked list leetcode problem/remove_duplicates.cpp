@@ -37,6 +37,7 @@ void append(int roll)
 void print()
 {
    node *current_node = root;
+  /// cout<<root->roll<<" re"<<endl;
    int l;
    while(current_node->next!=NULL)
    {
@@ -44,7 +45,10 @@ void print()
       current_node=current_node->next;
       l = current_node->roll;
    }
-   cout<<l<<endl;
+   if(root->next != NULL)
+       cout<<l<<endl;
+   else
+     cout<<root->roll<<endl;
 }
 
 void delete_duplicate()
@@ -56,8 +60,11 @@ void delete_duplicate()
         if(current_node->roll == selected_node->roll)
         {
 
-            ///cout<<"found "<<selected_node->roll<<endl;
-            current_node->next = selected_node->next;
+            ///cout<<"found "<<selected_node->next->roll<<endl;
+            if(selected_node->next==NULL)////{cout<<123111124<<endl;}
+              current_node->next = NULL;
+            else
+              current_node->next = selected_node->next;
             ///cout<<current_node->next->next->roll<<endl;
 
             delete(selected_node);

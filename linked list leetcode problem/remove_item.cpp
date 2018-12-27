@@ -20,7 +20,10 @@ void print()
       l = current_node->val;
    }
 
-    cout<<l<<endl;
+    if(root->next != NULL)
+       cout<<l<<endl;
+   else
+     cout<<root->roll<<endl;
 
 }
 void append(int val)
